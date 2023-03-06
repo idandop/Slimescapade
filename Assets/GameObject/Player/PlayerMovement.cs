@@ -335,7 +335,7 @@ public class PlayerMovement : MonoBehaviour
         {
             // Stop player from falling through the platform
             //Debug.Log("top touch");
-            //grounded = true;
+            grounded = true;
            
            // if(!onWall)
            // {
