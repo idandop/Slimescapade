@@ -5,21 +5,12 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed;
-    //public float jumpHeight;
     public float MaxFallSpeed;
     public float jumpHeight;
     
     [HideInInspector]
     public bool notPortal;
-    [HideInInspector]
-    public bool portalTop;
-    [HideInInspector]
-    public bool portalBottom;
-    [HideInInspector]
-    public bool portalLeft;
-    [HideInInspector]
-    public bool portalRight;
-   
+  
     
     private int jumps;
     private float move;
@@ -32,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     private bool onWall;//True when on wall and space down
     private bool canWallJump;
     private bool canReverse;
+    private bool up;
     
     
 
@@ -65,8 +57,18 @@ public class PlayerMovement : MonoBehaviour
         // Debug.Log(spacedown);
         //Debug.Log(rb.velocity.y);
         //Debug.Log(bounceHeight);
-        //Debug.Log(Mathf.Abs(rb.velocity.y)*2);
+        //Debug.Log(rb.velocity.y);
+       // Debug.Log(up);
 
+        if(rb.velocity.y > -1)
+       {
+           up = true;
+       }
+       else{
+           up = false;
+       }
+        
+        
         if (rb.velocity.y < MaxFallSpeed)
         {
             //Debug.Log("MaxFallSpeed");
@@ -175,6 +177,24 @@ public class PlayerMovement : MonoBehaviour
         wallJump -= 1;
         canWallJump = false;
         }
+
+    }
+    private void portalJump()
+    {
+        
+       if(up == true)
+       {
+        rb.velocity = new Vector2(rb.velocity.x,7);
+        Debug.Log("up");
+       }
+        else{
+        rb.velocity = new Vector2(rb.velocity.x,-2);
+       Debug.Log("down");
+        }
+        grounded = false; //Off Ground
+
+
+   
 
     }
 
@@ -391,7 +411,7 @@ public class PlayerMovement : MonoBehaviour
        // canReverse = true;
         ContactPoint2D contact = col.contacts[0];
         Vector2 normal = contact.normal;
-
+        portalJump();
         // Check if collision is from the top of the platform
         if (normal.y > 0.5f)
         {
@@ -399,8 +419,7 @@ public class PlayerMovement : MonoBehaviour
             //Debug.Log("top touch");
            
            
-           
-        portalTop = true;
+     
             
            
         }
@@ -409,8 +428,7 @@ public class PlayerMovement : MonoBehaviour
         else if (normal.y < -0.5f)
         {
             
-          portalBottom = true;
-           
+       
             
 
         }
@@ -418,14 +436,12 @@ public class PlayerMovement : MonoBehaviour
          else if (normal.x > 0.5f)
           {
         // Collision occurred on right of object
-        Debug.Log("right");  
-        portalRight = true;
+       
          }
          else if (normal.x < -0.5f)
           {
         // Collision occurred on left of object
-        Debug.Log("left");  
-        portalLeft = true;
+ 
           }
     }
     if (col.gameObject.tag != "Portal")
@@ -434,6 +450,8 @@ public class PlayerMovement : MonoBehaviour
     notPortal = true;
     }
     }
+
+
     private void OnCollisionExit2D(Collision2D col)
 {
     if (col.gameObject.tag == "Wall")
