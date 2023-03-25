@@ -10,14 +10,16 @@ TagManager:
   - BouncePad
   - Conveyor
   - Portal
+  - JumpPickup
+  - Exit
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
+  - Particles
   - 
   - 
   - 
@@ -46,4 +48,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Tower
+    uniqueID: 2567900369
+    locked: 0
+  - name: UI
+    uniqueID: 3583198009
+    locked: 0
+  - name: Particles
+    uniqueID: 2138031403
     locked: 0

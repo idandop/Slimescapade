@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8009212123589218774}
   - component: {fileID: 182854643676541811}
   - component: {fileID: 2821343510695191912}
+  - component: {fileID: 6014989797872049320}
   m_Layer: 0
   m_Name: BouncePad
   m_TagString: BouncePad
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 6972592847339717945}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 25, y: -64.68, z: 0.1044659}
-  m_LocalScale: {x: 1.825, y: 0.15, z: 1}
+  m_LocalScale: {x: 1, y: 0.062501, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 44ac88f1b8b23c34381e510dc73cf01b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b878a62d939bc9d44964ea59d835c455, type: 3}
   m_Color: {r: 0.371262, g: 0.9716981, b: 0.73839766, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,16 +99,30 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.0017940998}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.56, y: 2.56}
+    oldSize: {x: 5.12, y: 0.35}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.56, y: 2.56}
+  m_Size: {x: 5.119919, y: 0.3536868}
   m_EdgeRadius: 0
+--- !u!114 &6014989797872049320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6972592847339717945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd04a748fe39ead48a48179c81ec0fc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bouncePadFeedback: {fileID: 0}
+  player: {fileID: 0}
